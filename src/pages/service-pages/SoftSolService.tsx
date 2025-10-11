@@ -11,7 +11,6 @@ import {
 import emailjs from "@emailjs/browser";
 
 const heroImg = "/software-hero.png";
-const case2 = "/ERP-business.jpg";
 
 const features = [
   {
