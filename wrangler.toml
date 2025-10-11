@@ -1,5 +1,6 @@
 name = "one10technologies-it"
-compatibility_date = "2024-10-11"
+compatibility_date = "2024-10-01"
 
 [build]
-pages_build_output_dir = "dist"
+command = "npm run build"
+pages_build_output_dir = "./dist"

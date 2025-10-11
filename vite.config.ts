@@ -3,4 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [tailwindcss()],
+   esbuild: {
+  logOverride: { 'this-is-undefined-in-esm': 'silent' },
+  },
 });
