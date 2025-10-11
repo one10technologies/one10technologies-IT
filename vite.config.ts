@@ -1,9 +1,22 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 import tailwindcss from '@tailwindcss/vite';
 
+
 export default defineConfig({
-  plugins: [tailwindcss()],
-   esbuild: {
-  logOverride: { 'this-is-undefined-in-esm': 'silent' },
+  plugins: [react(),tailwindcss()],
+
+  build: {
+    outDir: "dist",
+  },
+  publicDir: "public",
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
   },
 });
+
+
+
