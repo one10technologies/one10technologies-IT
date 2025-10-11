@@ -1,0 +1,7 @@
+name = "one10technologies-it"
+compatibility_date = "2025-10-11"
+
+[build]
+command = "npm install @rollup/rollup-linux-x64-gnu@latest --save-optional && npm install lightningcss-linux-x64-gnu@latest --save-optional && npm run build"
+[build.environment]
+NODE_VERSION = "20"
