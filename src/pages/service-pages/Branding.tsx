@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import {
   Brush,
@@ -70,7 +68,9 @@ const Branding = () => {
                 desc: "Creating scalable UI kits and reusable components that keep your design consistent and efficient.",
               },
               {
-                icon: <MonitorSmartphone className="w-12 h-12 text-[#0037A6]" />,
+                icon: (
+                  <MonitorSmartphone className="w-12 h-12 text-[#0037A6]" />
+                ),
                 title: "Digital Branding",
                 desc: "Aligning your digital presence with your brand story across websites, apps, and marketing touchpoints.",
               },

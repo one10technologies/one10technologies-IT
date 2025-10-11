@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, X } from "lucide-react";
 import logo from "/one10tranparent.png";
@@ -31,17 +30,9 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all">
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
-
         {/* ✅ Desktop & Medium Logo */}
-        <a
-          href="/"
-          className="hidden md:flex items-center gap-2"
-        >
-          <img
-            src={logo}
-            alt="ONE10 Technologies"
-            className="h-50 w-auto"
-          />
+        <a href="/" className="hidden md:flex items-center gap-2">
+          <img src={logo} alt="ONE10 Technologies" className="h-50 w-auto" />
         </a>
 
         {/* ✅ Mobile Logo (slightly left) */}
@@ -49,11 +40,7 @@ const Navbar = () => {
           href="/"
           className="flex md:hidden items-center gap-2 absolute left-5"
         >
-          <img
-            src={logo}
-            alt="ONE10 Technologies"
-            className="h-30 w-auto"
-          />
+          <img src={logo} alt="ONE10 Technologies" className="h-30 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
@@ -263,7 +250,11 @@ const Navbar = () => {
           className="md:hidden text-gray-800 hover:text-[#0037A6] transition ml-auto"
           aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X size={26} /> : <span className="text-3xl">☰</span>}
+          {mobileMenuOpen ? (
+            <X size={26} />
+          ) : (
+            <span className="text-3xl">☰</span>
+          )}
         </button>
       </div>
 
@@ -274,13 +265,22 @@ const Navbar = () => {
         }`}
       >
         <nav className="flex flex-col p-6 text-gray-800 font-medium text-base">
-          <a href="/" className="py-3 border-b border-gray-100 hover:text-[#0037A6]">
+          <a
+            href="/"
+            className="py-3 border-b border-gray-100 hover:text-[#0037A6]"
+          >
             Home
           </a>
-          <a href="/about" className="py-3 border-b border-gray-100 hover:text-[#0037A6]">
+          <a
+            href="/about"
+            className="py-3 border-b border-gray-100 hover:text-[#0037A6]"
+          >
             About
           </a>
-          <a href="/industries" className="py-3 border-b border-gray-100 hover:text-[#0037A6]">
+          <a
+            href="/industries"
+            className="py-3 border-b border-gray-100 hover:text-[#0037A6]"
+          >
             Industries
           </a>
 
@@ -304,20 +304,93 @@ const Navbar = () => {
                 mobileServicesOpen ? "max-h-[600px] mt-3" : "max-h-0"
               } pl-3 space-y-2`}
             >
-              <li><a href="/services/webdev" className="block py-1 hover:text-[#0037A6]">Web Development</a></li>
-              <li><a href="/services/appdev" className="block py-1 hover:text-[#0037A6]">App Development</a></li>
-              <li><a href="/services/softwaresolutions" className="block py-1 hover:text-[#0037A6]">Software Solutions</a></li>
-              <li><a href="/services/seomarketing" className="block py-1 hover:text-[#0037A6]">SEO & Marketing</a></li>
-              <li><a href="/services/uiuxdesign" className="block py-1 hover:text-[#0037A6]">UI/UX Design</a></li>
-              <li><a href="/services/branding" className="block py-1 hover:text-[#0037A6]">Branding</a></li>
-              <li><a href="/services/portalsupport" className="block py-1 hover:text-[#0037A6]">Web Portals</a></li>
-              <li><a href="/services/maintenance" className="block py-1 hover:text-[#0037A6]">Maintenance</a></li>
-              <li><a href="/services/contactService" className="block py-1 hover:text-[#0037A6]">Contact</a></li>
+              <li>
+                <a
+                  href="/services/webdev"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Web Development
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/appdev"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  App Development
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/softwaresolutions"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Software Solutions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/seomarketing"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  SEO & Marketing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/uiuxdesign"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  UI/UX Design
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/branding"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Branding
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/portalsupport"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Web Portals
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/maintenance"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Maintenance
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/contactService"
+                  className="block py-1 hover:text-[#0037A6]"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
-          <a href="/work" className="py-3 border-b border-gray-100 hover:text-[#0037A6]">Our Work</a>
-          <a href="/contact" className="py-3 border-b border-gray-100 hover:text-[#0037A6]">Contact</a>
+          <a
+            href="/work"
+            className="py-3 border-b border-gray-100 hover:text-[#0037A6]"
+          >
+            Our Work
+          </a>
+          <a
+            href="/contact"
+            className="py-3 border-b border-gray-100 hover:text-[#0037A6]"
+          >
+            Contact
+          </a>
 
           <a
             href="/contact"

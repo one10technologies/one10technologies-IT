@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -89,7 +87,9 @@ const PortalsSupport = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="mb-6 flex justify-center md:justify-start">{service.icon}</div>
+                <div className="mb-6 flex justify-center md:justify-start">
+                  {service.icon}
+                </div>
                 <h3 className="text-2xl font-semibold mb-3 text-[#0037A6] text-center md:text-left">
                   {service.title}
                 </h3>

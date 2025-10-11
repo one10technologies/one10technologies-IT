@@ -1,4 +1,3 @@
-"use client";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { memo } from "react";

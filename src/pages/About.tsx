@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { ShieldCheck, Lightbulb, Users, Rocket } from "lucide-react";
 

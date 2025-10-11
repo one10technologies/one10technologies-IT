@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Globe, Code2, ShoppingCart, Palette, Server } from "lucide-react";
 
@@ -14,9 +12,7 @@ const WebDevService = () => {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <h1
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Web Development Services
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">

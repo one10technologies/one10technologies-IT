@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import {
   Smartphone,
@@ -44,8 +42,8 @@ const AppDevService = () => {
             Our App Development Expertise
           </motion.h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            We specialize in building powerful mobile apps across all platforms —
-            from concept and design to development and deployment — using
+            We specialize in building powerful mobile apps across all platforms
+            — from concept and design to development and deployment — using
             cutting-edge technologies that ensure scalability and performance.
           </p>
         </div>
@@ -63,7 +61,9 @@ const AppDevService = () => {
               desc: "High-performance apps built for Android and iOS using native technologies for seamless functionality.",
             },
             {
-              icon: <Layers className="w-10 h-10" style={{ color: "#0037A6" }} />,
+              icon: (
+                <Layers className="w-10 h-10" style={{ color: "#0037A6" }} />
+              ),
               title: "Cross-Platform Solutions",
               desc: "Develop once, deploy everywhere — Flutter and React Native apps that maintain performance and consistency.",
             },
@@ -132,10 +132,7 @@ const AppDevService = () => {
                 Secure and scalable architecture
               </li>
               <li className="flex items-center">
-                <Rocket
-                  className="w-5 h-5 mr-2"
-                  style={{ color: "#0037A6" }}
-                />
+                <Rocket className="w-5 h-5 mr-2" style={{ color: "#0037A6" }} />
                 Fast deployment & optimized performance
               </li>
               <li className="flex items-center">

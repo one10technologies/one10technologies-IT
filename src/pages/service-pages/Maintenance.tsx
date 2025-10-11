@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import {
   Wrench,
@@ -26,8 +24,8 @@ const Maintenance = () => {
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-10">
             Keep your digital solutions running flawlessly with proactive
-            updates, performance optimization, and dedicated support that ensures
-            stability and security.
+            updates, performance optimization, and dedicated support that
+            ensures stability and security.
           </p>
         </motion.div>
       </section>
