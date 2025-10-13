@@ -206,55 +206,55 @@ const industries: Industry[] = [
     title: "Insurance",
     description:
       "Modernize your insurance operations with automated claims, seamless policy management, and customer-centric digital platforms.",
-    image: "/insurance-img.webp",
+    image: "/insurance-img.png",
   },
   {
     title: "Education",
     description:
       "Empowering educators and learners through e-learning platforms, digital classrooms, and smart content management systems for better engagement.",
-    image: "/education-img.webp",
+    image: "/education-img.png",
   },
   {
     title: "Healthcare",
     description:
       "We build secure, compliant healthcare applications such as telemedicine systems, patient portals, and health record integrations.",
-    image: "/healthcare-img.webp",
+    image: "/healthcare-img.png",
   },
   {
     title: "Automation",
     description:
       "Delivering intelligent automation and process control systems that streamline operations and boost productivity across industrial sectors.",
-    image: "/automation-img.webp",
+    image: "/automation-img.png",
   },
   {
     title: "E-Commerce",
     description:
       "Creating high-performance online stores and enterprise-grade commerce platforms with secure payments and advanced order management.",
-    image: "/eccommerce-img.webp",
+    image: "/eccommerce-img.png",
   },
   {
     title: "Manufacturing",
     description:
       "Digitally transforming production lines with connected systems, predictive maintenance, and real-time monitoring solutions.",
-    image: "/manufactoring-img.webp",
+    image: "/manufactoring-img.png",
   },
   {
     title: "Travel & Hospitality",
     description:
       "Designing seamless booking, CRM, and loyalty platforms that elevate customer experiences in travel and hospitality sectors.",
-    image: "/travel&hospitality-img.webp",
+    image: "/travel&hospitality-img.png",
   },
   {
     title: "Logistics & Transportation",
     description:
       "Optimize fleet management, route planning, and shipment tracking with integrated logistics and transport management software.",
-    image: "/logistics&transportatation-img.webp",
+    image: "/logistics&transportatation-img.png",
   },
   {
     title: "Real Estate",
     description:
       "Empowering real estate businesses with property listing systems, CRM tools, and immersive digital property showcases.",
-    image: "/realestate-img.webp",
+    image: "/realestate-img.png",
   },
 ];
 

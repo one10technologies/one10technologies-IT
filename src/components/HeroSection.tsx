@@ -11,7 +11,8 @@ const HeroSection = () => {
       {/* Background Video */}
       <motion.video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="./herovideo1.mp4" // make sure this path is correct or import it
+        // src="./herovideo1.mp4" // make sure this path is correct or import it
+        src="/herovideo.webm"
         autoPlay
         loop
         muted
