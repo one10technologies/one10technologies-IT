@@ -1,11 +1,12 @@
 // import { LazyMotion, domAnimation, m } from "framer-motion";
 // import { useInView } from "react-intersection-observer";
-// import { memo } from "react";
+// import { memo, useState } from "react";
 
 // interface Industry {
 //   title: string;
 //   description: string;
 //   video: string;
+//   image: string;
 // }
 
 // const industries: Industry[] = [
@@ -14,63 +15,73 @@
 //     description:
 //       "Modernize your insurance operations with automated claims, seamless policy management, and customer-centric digital platforms.",
 //     video: "/insurance-vid.mp4",
+//     image: "/insurance-img.png",
 //   },
 //   {
 //     title: "Education",
 //     description:
 //       "Empowering educators and learners through e-learning platforms, digital classrooms, and smart content management systems for better engagement.",
 //     video: "/education-vid.mp4",
+//     image: "/education-img.png",
 //   },
 //   {
 //     title: "Healthcare",
 //     description:
 //       "We build secure, compliant healthcare applications such as telemedicine systems, patient portals, and health record integrations.",
 //     video: "/healthcare-vid.mp4",
+//     image: "/healthcare-img.png",
 //   },
 //   {
 //     title: "Automation",
 //     description:
 //       "Delivering intelligent automation and process control systems that streamline operations and boost productivity across industrial sectors.",
 //     video: "/automation-vid.mp4",
+//     image: "/automation-img.png",
 //   },
 //   {
 //     title: "E-Commerce",
 //     description:
 //       "Creating high-performance online stores and enterprise-grade commerce platforms with secure payments and advanced order management.",
 //     video: "/eccommerce-vid.mp4",
+//     image: "/eccommerce-img.png",
 //   },
 //   {
 //     title: "Manufacturing",
 //     description:
 //       "Digitally transforming production lines with connected systems, predictive maintenance, and real-time monitoring solutions.",
 //     video: "/manufactoring-vid.mp4",
+//     image: "/manufactoring-img.png",
 //   },
 //   {
 //     title: "Travel & Hospitality",
 //     description:
 //       "Designing seamless booking, CRM, and loyalty platforms that elevate customer experiences in travel and hospitality sectors.",
 //     video: "/travel&hospitality-vid.mp4",
+//     image: "/travel&hospitality-img.png",
 //   },
 //   {
 //     title: "Logistics & Transportation",
 //     description:
 //       "Optimize fleet management, route planning, and shipment tracking with integrated logistics and transport management software.",
 //     video: "/logistics&transportatation-vid.mp4",
+//     image: "/logistics&transportatation-img.png",
 //   },
 //   {
 //     title: "Real Estate",
 //     description:
 //       "Empowering real estate businesses with property listing systems, CRM tools, and immersive digital property showcases.",
 //     video: "/realestate-vid.mp4",
+//     image: "/realestate-img.png",
 //   },
 // ];
 
-// // 💡 Optimized Card (memoized)
-// const IndustryCard = memo(({ title, description, video }: Industry) => {
+// // 💡 Industry Card with instant image + lazy video
+// const IndustryCard = memo(({ title, description, video, image }: Industry) => {
 //   const { ref, inView } = useInView({
 //     triggerOnce: false,
 //     threshold: 0.3,
 //   });
+//   const [videoLoaded, setVideoLoaded] = useState(false);
 
 //   return (
 //     <m.div
@@ -82,19 +93,34 @@
 //       transition={{ duration: 0.6 }}
 //     >
 //       <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden will-change-transform">
-//         {inView ? (
+//         {/* Always show image first */}
+//         <img
+//           src={image}
+//           alt={title}
+//           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+//             videoLoaded ? "opacity-0" : "opacity-100"
+//           }`}
+//         />
+
+//         {/* Lazy-load video only when visible */}
+//         {inView && (
 //           <video
 //             src={video}
 //             autoPlay
 //             loop
 //             muted
 //             playsInline
-//             className="w-full h-full object-cover transition-transform duration-700 transform-gpu group-hover:scale-110"
+//             preload="none"
+//             className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 transform-gpu group-hover:scale-110 ${
+//               videoLoaded ? "opacity-100" : "opacity-0"
+//             }`}
+//             onLoadedData={() => setVideoLoaded(true)}
+//             onError={() => setVideoLoaded(false)}
 //           />
-//         ) : (
-//           <div className="w-full h-full bg-gray-100 animate-pulse" />
 //         )}
-//         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+//         {/* Overlay gradient */}
+//         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
 //       </div>
 
 //       <div className="p-5 sm:p-6 md:p-7">
@@ -154,7 +180,7 @@
 //           </h4>
 //           <a
 //             href="/contact"
-//             className="inline-block bg-[#0037A6] text-white px-6 py-3 rounded-full text-sm sm:text-base hover:bg-[#0037A6] transition-all duration-300 shadow-lg"
+//             className="inline-block bg-[#0037A6] text-white px-6 py-3 rounded-full text-sm sm:text-base hover:bg-[#002b80] transition-all duration-300 shadow-lg"
 //           >
 //             Let’s Collaborate
 //           </a>
@@ -166,16 +192,12 @@
 
 // export default Industries;
 
-"use client";
-
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { memo, useState } from "react";
+import { memo } from "react";
 
 interface Industry {
   title: string;
   description: string;
-  video: string;
   image: string;
 }
 
@@ -184,78 +206,62 @@ const industries: Industry[] = [
     title: "Insurance",
     description:
       "Modernize your insurance operations with automated claims, seamless policy management, and customer-centric digital platforms.",
-    video: "/insurance-vid.mp4",
     image: "/insurance-img.png",
   },
   {
     title: "Education",
     description:
       "Empowering educators and learners through e-learning platforms, digital classrooms, and smart content management systems for better engagement.",
-    video: "/education-vid.mp4",
     image: "/education-img.png",
   },
   {
     title: "Healthcare",
     description:
       "We build secure, compliant healthcare applications such as telemedicine systems, patient portals, and health record integrations.",
-    video: "/healthcare-vid.mp4",
     image: "/healthcare-img.png",
   },
   {
     title: "Automation",
     description:
       "Delivering intelligent automation and process control systems that streamline operations and boost productivity across industrial sectors.",
-    video: "/automation-vid.mp4",
     image: "/automation-img.png",
   },
   {
     title: "E-Commerce",
     description:
       "Creating high-performance online stores and enterprise-grade commerce platforms with secure payments and advanced order management.",
-    video: "/eccommerce-vid.mp4",
     image: "/eccommerce-img.png",
   },
   {
     title: "Manufacturing",
     description:
       "Digitally transforming production lines with connected systems, predictive maintenance, and real-time monitoring solutions.",
-    video: "/manufactoring-vid.mp4",
     image: "/manufactoring-img.png",
   },
   {
     title: "Travel & Hospitality",
     description:
       "Designing seamless booking, CRM, and loyalty platforms that elevate customer experiences in travel and hospitality sectors.",
-    video: "/travel&hospitality-vid.mp4",
     image: "/travel&hospitality-img.png",
   },
   {
     title: "Logistics & Transportation",
     description:
       "Optimize fleet management, route planning, and shipment tracking with integrated logistics and transport management software.",
-    video: "/logistics&transportatation-vid.mp4",
     image: "/logistics&transportatation-img.png",
   },
   {
     title: "Real Estate",
     description:
       "Empowering real estate businesses with property listing systems, CRM tools, and immersive digital property showcases.",
-    video: "/realestate-vid.mp4",
     image: "/realestate-img.png",
   },
 ];
 
-// 💡 Industry Card with instant image + lazy video
-const IndustryCard = memo(({ title, description, video, image }: Industry) => {
-  const { ref, inView } = useInView({
-    triggerOnce: false,
-    threshold: 0.3,
-  });
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
+// 💡 Simplified Industry Card (only image)
+const IndustryCard = memo(({ title, description, image }: Industry) => {
   return (
     <m.div
-      ref={ref}
       className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl focus-within:shadow-2xl transition-all duration-500 group transform-gpu"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -263,33 +269,11 @@ const IndustryCard = memo(({ title, description, video, image }: Industry) => {
       transition={{ duration: 0.6 }}
     >
       <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden will-change-transform">
-        {/* Always show image first */}
         <img
           src={image}
           alt={title}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            videoLoaded ? "opacity-0" : "opacity-100"
-          }`}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 transform-gpu group-hover:scale-110"
         />
-
-        {/* Lazy-load video only when visible */}
-        {inView && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 transform-gpu group-hover:scale-110 ${
-              videoLoaded ? "opacity-100" : "opacity-0"
-            }`}
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={() => setVideoLoaded(false)}
-          />
-        )}
-
-        {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
       </div>
 
